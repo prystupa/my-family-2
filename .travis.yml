@@ -1,5 +1,12 @@
 language: node_js
 node_js:
-  - "0.10"
+- '0.10'
 before_install:
-  - npm install -g grunt-cli
+- npm install -g grunt-cli
+deploy:
+  provider: heroku
+  api_key:
+    secure: jkqplVyXFgXFl41aUvjrexpTQAGTHYoiwT4okrV6nqmVL892b7VPPOhqgtSPdYuqVq9o4E+Jz70jd/VPkWggBLSAbW9ye6XQzdow+fvTr0ce5FAKZkKaoO4Alpxc9ky0dQN1ORGqIrukihIE0i2cJ4rCMP5phS6QKjHiiZ7UfqQ=
+  app: ancient-everglades-7396
+  on:
+    repo: prystupa/my-family-2
