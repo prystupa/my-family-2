@@ -3,7 +3,6 @@
  */
 
 var express = require('express');
-var sockjs = require('sockjs');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
@@ -20,10 +19,6 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/js/require.js', function (req, res) {
-    res.sendfile(path.join(__dirname, '/node_modules/requirejs/require.js'));
-});
-
 // development only
 if ('development' == app.get('env')) {
     app.use(express.errorHandler());
@@ -31,20 +26,16 @@ if ('development' == app.get('env')) {
 
 var httpServer = http.createServer(app);
 
-var heartbeat = sockjs.createServer();
-heartbeat.installHandlers(httpServer, {prefix: '/services/heartbeat'});
-heartbeat.on('connection', function (connection) {
-
-    var interval = setInterval(function() {
-        connection.write("heartbeat");
+var io = require('socket.io').listen(httpServer);
+io.of('/services/heartbeat').on('connection', function (socket) {
+    var interval = setInterval(function () {
+        socket.emit('data');
     }, 5000);
-    connection.on('close', function () {
+    socket.on('disconnect', function () {
         clearInterval(interval);
     });
 });
 
-
 httpServer.listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
 });
-
