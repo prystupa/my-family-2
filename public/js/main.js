@@ -40,10 +40,6 @@ define(function (require) {
 
     watchHeartbeat();
 
-    heartbeat.onmessage = function () {
-        watchHeartbeat();
-    };
-
     heartbeat.on('data', function () {
         watchHeartbeat();
     });
