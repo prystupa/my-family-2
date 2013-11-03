@@ -3,7 +3,7 @@
  */
 
 var express = require('express');
-var user = require('./routes/user');
+var heartbeat = require('./routes/heartbeat');
 var http = require('http');
 var path = require('path');
 
@@ -27,14 +27,7 @@ if ('development' == app.get('env')) {
 var httpServer = http.createServer(app);
 
 var io = require('socket.io').listen(httpServer);
-io.of('/services/heartbeat').on('connection', function (socket) {
-    var interval = setInterval(function () {
-        socket.emit('data');
-    }, 5000);
-    socket.on('disconnect', function () {
-        clearInterval(interval);
-    });
-});
+io.of('/services/heartbeat').on('connection', heartbeat);
 
 httpServer.listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
