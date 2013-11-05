@@ -2,11 +2,9 @@ language: node_js
 node_js:
 - '0.10'
 before_install:
-- npm install -g grunt-cli
 - gem install compass
 deploy:
   provider: heroku
-  strategy: git
   api_key:
     secure: jkqplVyXFgXFl41aUvjrexpTQAGTHYoiwT4okrV6nqmVL892b7VPPOhqgtSPdYuqVq9o4E+Jz70jd/VPkWggBLSAbW9ye6XQzdow+fvTr0ce5FAKZkKaoO4Alpxc9ky0dQN1ORGqIrukihIE0i2cJ4rCMP5phS6QKjHiiZ7UfqQ=
   app: my-family-2
