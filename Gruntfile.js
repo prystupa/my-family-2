@@ -26,6 +26,11 @@ module.exports = function (grunt) {
             js: {
                 files: ['lib/**/*.js'],
                 tasks: ['jshint']
+            },
+
+            css: {
+                files: ['sass/**/*.scss'],
+                tasks: ['compass']
             }
         }
     });
