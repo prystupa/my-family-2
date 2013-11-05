@@ -2,7 +2,7 @@ language: node_js
 node_js:
 - '0.10'
 before_install:
-- gem install compass
+- bundle install
 deploy:
   provider: heroku
   api_key:
