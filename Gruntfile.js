@@ -13,6 +13,15 @@ module.exports = function (grunt) {
             all: ['Gruntfile.js', 'lib/**/*.js']
         },
 
+        compass: {
+            dist: {
+                options: {
+                    sassDir: 'sass',
+                    cssDir: 'lib/public/css'
+                }
+            }
+        },
+
         watch: {
             js: {
                 files: ['lib/**/*.js'],
@@ -21,8 +30,9 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['jshint']);
+    grunt.registerTask('default', ['jshint', 'compass']);
 };
