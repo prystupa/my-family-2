@@ -11,3 +11,4 @@ deploy:
   app: my-family-2
   on:
     repo: prystupa/my-family-2
+  run: "grunt postdeploy"
