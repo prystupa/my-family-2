@@ -40,4 +40,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('default', ['jshint', 'compass']);
+    grunt.registerTask('postinstall', ['compass']);
 };
