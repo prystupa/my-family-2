@@ -1,1 +1,1 @@
-web: node lib/app
+web: grunt postdeploy; node lib/app
