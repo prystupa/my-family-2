@@ -3,15 +3,17 @@
 <head>
     <meta charset="utf-8">
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery-jgrowl/1.2.12/jquery.jgrowl.min.css">
+    <link rel="stylesheet" href="/libs/jquery-jgrowl/1.2.12/jquery.jgrowl.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
-    <title>My Home 2</title>
+    <title>My Family 2</title>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.9/require.min.js"></script>
-    <script src="js/index.js"></script>
+    <script src="/libs/require.js/2.1.9/require.min.js" data-main="js/main"></script>
 </head>
 
 <body>
+<div jgrowl-alerts ng-controller="HeartbeatController"></div>
+<div class="app-version" ng-controller="DeploymentController">{{appVersion}}</div>
+<div gradebook-panel ng-controller="GradebookController"></div>
 </body>
 </html>

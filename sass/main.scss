@@ -1,11 +1,11 @@
 body {
 
-  .app-alerts {
+  > [jgrowl-alerts] {
     position: absolute;
     right: 0;
   }
 
-  .app-version {
+  > .app-version {
     float: right;
     font-size: 0.75em;
   }

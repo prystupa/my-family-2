@@ -4,13 +4,36 @@
  * Date: 11/3/13
  * Time: 10:34 AM
  */
+"use strict";
 
 module.exports = function (grunt) {
-    "use strict";
 
     grunt.initConfig({
         jshint: {
-            all: ['Gruntfile.js', 'lib/**/*.js']
+            node: {
+                src: ['Gruntfile.js', 'lib/**/*.js'],
+                options: {
+                    strict: true,
+                    undef: true,
+                    unused: true,
+                    node: true,
+                    ignores: ['lib/public/**/*.js']
+                }
+            },
+
+            browser: {
+                src: ['lib/public/**/*.js'],
+                options: {
+                    strict: true,
+                    undef: true,
+                    unused: true,
+                    browser: true,
+                    globals: {
+                        require: true,
+                        define: true
+                    }
+                }
+            }
         },
 
         compass: {
