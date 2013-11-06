@@ -1,3 +1,5 @@
 *.iml
 .idea/
 .env
+lib/public/css/
+.sass-cache/
