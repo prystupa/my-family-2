@@ -1,6 +1,12 @@
-<ul>
-    <li ng-repeat="grade in grades" ng-class="grade.context">
-        <div>{{grade.course}}</div>
-        <div>{{history(grade.course)}}</div>
-    </li>
-</ul>
+<div class="panel panel-default gradebook-panel">
+    <div class="panel-heading">
+        <h3 class="panel-title">Sasha's Gradebook</h3>
+    </div>
+    <ul class="list-group">
+        <li ng-repeat="grade in grades" ng-class="grade.context" class="list-group-item">
+            <span>{{grade.course}}</span>
+            <span sparkline="history(grade.course)"></span>
+            <span class="badge">{{grade.avg? grade.avg + "%" : "No Grades"}}</span>
+        </li>
+    </ul>
+</div>

@@ -1,3 +1,7 @@
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
 
   > [jgrowl-alerts] {
@@ -8,5 +12,32 @@ body {
   > .app-version {
     float: right;
     font-size: 0.75em;
+  }
+
+  > [gradebook-panel] {
+    width: 300px;
+
+    li > .badge {
+      color: #468847;
+      background-color: #dff0d8;
+      border-color: #d6e9c6;
+    }
+
+    li.warning > .badge {
+      color: #a47e3c;
+      background-color: #fcf8e3;
+      border-color: #faebcc;
+    }
+
+    li.danger > .badge {
+      color: #b94a48;
+      background-color: #f2dede;
+      border-color: #ebccd1;
+    }
+
+    li > [sparkline] {
+      float: right;
+      margin-left: 10px;
+    }
   }
 }
