@@ -9,7 +9,7 @@
     <ul class="list-group">
         <li ng-repeat="grade in grades" ng-class="grade.context" class="list-group-item">
             <span>{{grade.course}}</span>
-            <span sparkline="history(grade.course)"></span>
+            <span sparkline="history(grade.course)" data-normal-range-min="90" data-normal-range-max="100"></span>
             <span class="badge">{{grade.avg? grade.avg + "%" : "No Grades"}}</span>
         </li>
     </ul>
